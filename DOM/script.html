@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>DOM Selectors Demo</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .product-card {
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            background: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- ========== HEADER ========== -->
+    <header id="main-header" class="p-6 bg-white shadow">
+        <h1 id="page-title" class="text-3xl font-bold">DOM Selectors Practice Page</h1>
+        <p class="subtitle highlight text-gray-600">
+            Learn how to select and manipulate elements.
+        </p>
+    </header>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="main-nav" class="bg-blue-600 text-white p-4">
+        <ul class="navbar flex gap-6">
+            <li class="nav-item active"><a href="#section-products" class="nav-link hover:underline">Products</a></li>
+            <li class="nav-item"><a href="#section-users" class="nav-link hover:underline">Users</a></li>
+            <li class="nav-item"><a href="#section-form" class="nav-link hover:underline">Form</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== PRODUCTS SECTION ========== -->
+    <section id="section-products" class="p-8">
+        <h2 class="section-title text-2xl font-semibold mb-4">Products</h2>
+
+        <div class="product-card featured mb-4" data-product-id="101" data-category="electronics">
+            <h3 class="product-name font-bold">Laptop Pro</h3>
+            <p class="product-price">₹85,000</p>
+            <button class="btn btn-add-to-cart bg-blue-600 text-white px-3 py-1 rounded mt-2">Add to Cart</button>
+        </div>
+
+        <div class="product-card mb-4" id="featuredPro" data-product-id="102" data-category="clothing">
+            <h3 class="product-name font-bold">T-Shirt</h3>
+            <p class="product-price">₹799</p>
+            <button class="btn btn-add-to-cart bg-blue-600 text-white px-3 py-1 rounded mt-2">Add to Cart</button>
+        </div>
+
+        <div class="product-card mb-4" data-product-id="103" data-category="electronics">
+            <h3 class="product-name font-bold">Headphones</h3>
+            <p class="product-price">₹2,499</p>
+            <button class="btn btn-add-to-cart special-offer bg-green-600 text-white px-3 py-1 rounded mt-2">
+                Add to Cart
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== USERS SECTION ========== -->
+    <section id="section-users" class="section p-8 bg-white shadow">
+        <h2 class="section-title text-2xl font-semibold mb-4">Users</h2>
+
+        <!-- Unordered list -->
+        <ul id="user-list" class="mb-6 list-disc pl-6">
+            <li class="user-item" data-role="admin">Vamsi (Admin)</li>
+            <li class="user-item" data-role="trainer">Nobitha (Trainer)</li>
+            <li class="user-item" data-role="student">Rahul (Student)</li>
+        </ul>
+
+        <!-- Table -->
+        <table id="user-table" border="1" class="border-collapse w-full text-left">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-3 py-2">Name</th>
+                    <th class="px-3 py-2">Role</th>
+                    <th class="px-3 py-2">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="user-row">
+                    <td class="user-name px-3 py-2">Vamsi</td>
+                    <td class="user-role px-3 py-2">Admin</td>
+                    <td class="user-status active-status px-3 py-2 text-green-600">Active</td>
+                </tr>
+                <tr class="user-row">
+                    <td class="user-name px-3 py-2">Nobitha</td>
+                    <td class="user-role px-3 py-2">Trainer</td>
+                    <td class="user-status inactive-status px-3 py-2 text-red-500">Inactive</td>
+                </tr>
+                <tr class="user-row">
+                    <td class="user-name px-3 py-2">Rahul</td>
+                    <td class="user-role px-3 py-2">Student</td>
+                    <td class="user-status active-status px-3 py-2 text-green-600">Active</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ========== FORM SECTION ========== -->
+    <section id="section-form" class="section p-8">
+        <h2 class="section-title text-2xl font-semibold mb-4">Enquiry Form</h2>
+
+        <form id="enquiry-form" class="grid gap-4 max-w-xl">
+            <div>
+                <label for="input-name" class="font-medium">Name</label>
+                <input type="text" id="input-name" class="border p-2 w-full rounded" placeholder="Enter your name" />
+            </div>
+
+            <div>
+                <label for="input-email" class="font-medium">Email</label>
+                <input type="email" id="input-email" class="border p-2 w-full rounded" placeholder="Enter your email" />
+            </div>
+
+            <div>
+                <label for="select-course" class="font-medium">Course</label>
+                <select id="select-course" class="border p-2 w-full rounded">
+                    <option value="">-- Select --</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="react">React</option>
+                    <option value="mern">MERN</option>
+                </select>
+            </div>
+
+            <label class="flex items-center gap-2">
+                <input type="checkbox" id="checkbox-terms" />
+                I agree to the terms
+            </label>
+
+            <div class="flex gap-4">
+                <button type="submit" id="btn-submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+                    Submit
+                </button>
+                <button type="button" id="btn-reset" class="bg-gray-500 text-white px-4 py-2 rounded">
+                    Reset
+                </button>
+            </div>
+        </form>
+
+        <p id="form-message" class="mt-4 text-blue-600">
+            Please fill the form and click Submit.
+        </p>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="main-footer" class="bg-gray-800 text-white p-6">
+        <div class="footerContent flex justify-evenly">
+            <ul class="navbar">
+                <li class="nav-item active"><a href="#section-products">Products</a></li>
+                <li class="nav-item"><a href="#section-users">Users</a></li>
+                <li class="nav-item"><a href="#section-form">Form</a></li>
+            </ul>
+
+            <ul><li>Home</li><li>Home</li><li>Home</li><li>Home</li><li>Home</li></ul>
+            <ul><li>Home</li><li>Home</li><li>Home</li><li>Home</li><li>Home</li></ul>
+            <ul><li>Home</li><li>Home</li><li>Home</li><li>Home</li><li>Home</li></ul>
+        </div>
+
+        <p class="footer-text text-center mt-4">© 2025 DOM Practice Page</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
