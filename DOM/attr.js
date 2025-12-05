@@ -106,13 +106,3 @@ function validatePassword(password) {
 
     return "Valid Password!";
 }
-
-
-function validatePassword(password) {
-    const pattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!]).{8,15}$/;
-    if (pattern.test(password)) {
-        return "Valid Password!";
-    } else {
-        return "Invalid Password!";
-    }
-}
