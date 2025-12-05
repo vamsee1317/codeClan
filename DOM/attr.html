@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Attribute Manipulation Demo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="cardContainer" class="card-container">
+        <div class="product-card" id="productCard" data-id="101" data-category="electronics">
+            <img src="https://images.pexels.com/photos/754949/pexels-photo-754949.jpeg" id="productImage"
+                alt="Product Image" class="product-image">
+
+            <h2 id="productName">Smart Headphones</h2>
+            <p id="productStatus">Status: <span class="status-text">Available</span></p>
+
+            <button id="wishlistBtn" class="btn">♡ Add to Wishlist</button>
+            <button id="stockBtn" class="btn warn">Mark Out of Stock</button>
+            <button id="highlightBtn" class="btn info">Highlight Product</button>
+
+            <div id="logBox" class="log"></div>
+        </div>
+
+        <div class="product-card" id="productCard" data-id="101" data-category="electronics">
+            <img src="https://images.pexels.com/photos/754949/pexels-photo-754949.jpeg" id="productImage"
+                alt="Product Image" class="product-image">
+
+            <h2 id="productName">Smart Headphones</h2>
+            <p id="productStatus">Status: <span class="status-text">Available</span></p>
+
+            <button id="wishlistBtn" class="btn">♡ Add to Wishlist</button>
+            <button id="stockBtn" class="btn warn">Mark Out of Stock</button>
+            <button id="highlightBtn" class="btn info">Highlight Product</button>
+
+            <div id="logBox" class="log"></div>
+        </div>
+    </div>
+
+
+    <div id="error" class="error-div">
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <script src="./attr.js"></script>
+</body>
+
+</html>

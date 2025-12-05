@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOM Attribute Manipulation – Theory & Examples</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+    h1, h2 {
+        color: #2a4d8f;
+    }
+    pre {
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+    .example-box {
+        padding: 15px;
+        background: #eef6ff;
+        border-left: 4px solid #2a4d8f;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+
+<body>
+<h1>DOM Attribute Manipulation – Complete Theory with Examples</h1>
+
+<p>
+DOM attribute manipulation allows JavaScript to read, write, update, and verify the attributes
+of HTML elements in real-time. These operations are heavily used in modern frontend development,
+especially in eCommerce, dashboards, admin UI, form handling, and interactive components.
+</p>
+
+<hr />
+
+<h2>1. setAttribute(attribute, value)</h2>
+
+<p><strong>Definition:</strong> Adds a new attribute or updates an existing one.</p>
+
+<p><strong>Syntax:</strong></p>
+<pre><code>element.setAttribute("attributeName", "value")</code></pre>
+
+<p><strong>Real-time Use Cases:</strong></p>
+<ul>
+    <li>Disable buttons on form submission</li>
+    <li>Lazy loading images by setting <code>src</code> dynamically</li>
+    <li>Adding custom <code>data-*</code> attributes for backend or analytics</li>
+    <li>Changing theme using <code>data-theme="dark"</code></li>
+</ul>
+
+<div class="example-box">
+<h3>Example:</h3>
+<pre><code>const btn = document.getElementById("buyBtn");
+btn.setAttribute("disabled", true);</code></pre>
+
+<p>This is how real eCommerce apps disable the Buy button when item is unavailable.</p>
+</div>
+
+<hr />
+
+<h2>2. getAttribute(attribute)</h2>
+
+<p><strong>Definition:</strong> Retrieves the value of an attribute.</p>
+
+<p><strong>Syntax:</strong></p>
+<pre><code>element.getAttribute("attributeName")</code></pre>
+
+<p><strong>Real-time Use Cases:</strong></p>
+<ul>
+    <li>Getting product ID (<code>data-id</code>) before sending API calls</li>
+    <li>Reading <code>href</code> of a link before redirecting</li>
+    <li>Reading current theme (<code>data-theme</code>)</li>
+</ul>
+
+<div class="example-box">
+<h3>Example:</h3>
+<pre><code>const product = document.querySelector(".product-card");
+const id = product.getAttribute("data-id");
+console.log("Product ID:", id);</code></pre>
+</div>
+
+<hr />
+
+<h2>3. hasAttribute(attribute)</h2>
+
+<p><strong>Definition:</strong> Checks if an attribute exists on an element.</p>
+
+<p><strong>Syntax:</strong></p>
+<pre><code>element.hasAttribute("attributeName")</code></pre>
+
+<p><strong>Real-time Use Cases:</strong></p>
+<ul>
+    <li>Check if a button is already disabled</li>
+    <li>Check if a product card has <code>data-out-of-stock</code></li>
+    <li>Check if an image has a <code>src</code> assigned</li>
+    <li>Check ARIA attributes for accessibility</li>
+</ul>
+
+<div class="example-box">
+<h3>Example:</h3>
+<pre><code>if (!btn.hasAttribute("disabled")) {
+    btn.setAttribute("disabled", true);
+    console.log("Button disabled.");
+}</code></pre>
+</div>
+
+<hr />
+
+<h2>4. Class Attribute Manipulation</h2>
+
+<p>
+Class manipulation is done using <code>element.classList</code>, not <code>setAttribute</code>.
+This is cleaner, easier, and used throughout production applications.
+</p>
+
+<h3>Available classList methods:</h3>
+<ul>
+    <li><strong>add("class")</strong> – Adds a class</li>
+    <li><strong>remove("class")</strong> – Removes a class</li>
+    <li><strong>toggle("class")</strong> – Adds if missing, removes if present</li>
+    <li><strong>contains("class")</strong> – Checks if class exists</li>
+</ul>
+
+<p><strong>Real-time Use Cases:</strong></p>
+<ul>
+    <li>Toggling wishlist heart icon</li>
+    <li>Showing/hiding mobile menus</li>
+    <li>Highlighting active navbar items</li>
+    <li>Dark/light theme toggles</li>
+    <li>Adding error/success classes in forms</li>
+</ul>
+
+<div class="example-box">
+<h3>Example:</h3>
+<pre><code>const card = document.querySelector(".card");
+
+// Toggle highlight
+card.classList.toggle("highlight");
+
+// Check if highlight exists
+if (card.classList.contains("highlight")) {
+    console.log("Product is highlighted");
+}</code></pre>
+</div>
+
+<hr />
+
+<h2>Complete Mini Example (All Methods Together)</h2>
+
+<p>This example simulates a real production environment used in eCommerce.</p>
+
+<pre><code>&lt;div class="product-card" id="card" data-id="555"&gt;
+    &lt;button id="wish"&gt;Add to Wishlist&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const card = document.getElementById("card");
+const wish = document.getElementById("wish");
+
+// setAttribute
+wish.addEventListener("click", () =&gt; {
+    // Toggle wishlist UI class
+    wish.classList.toggle("active");
+
+    // Add custom attribute
+    if (wish.classList.contains("active")) {
+        card.setAttribute("data-wishlist", "true");
+    } else {
+        card.setAttribute("data-wishlist", "false");
+    }
+});
+
+// getAttribute
+console.log("Product ID:", card.getAttribute("data-id"));
+
+// hasAttribute
+if (!card.hasAttribute("data-out-of-stock")) {
+    console.log("Product is currently available.");
+}
+&lt;/script&gt;
+</code></pre>
+
+<hr />
+
+<h2>Summary</h2>
+
+<ul>
+    <li><strong>setAttribute()</strong> – Add/update attributes</li>
+    <li><strong>getAttribute()</strong> – Read attributes</li>
+    <li><strong>hasAttribute()</strong> – Check existence of attributes</li>
+    <li><strong>classList</strong> – Clean way to modify classes</li>
+</ul>
+
+<p>
+These methods are essential for building interactive UI in production apps like Amazon, Flipkart,
+admin dashboards, LMS platforms, booking systems, and more.
+</p>
+
+</body>
+</html>
