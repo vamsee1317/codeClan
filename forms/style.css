@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 
 .form-container {
@@ -50,6 +51,15 @@
 .input-group input:focus {
   border-color: rgba(167, 139, 250);
 }
+
+/* error message style */
+.error {
+  color: #ffb4b4; /* light red - adjust to your theme */
+  font-size: 0.8rem;
+  margin: 6px 0 0 0;
+  min-height: 1.1em; /* keeps layout stable even when empty */
+}
+
 
 .forgot {
   display: flex;
