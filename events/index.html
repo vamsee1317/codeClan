@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in Javascript</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Inline Event Handling</h2>
+        <button type="button" class="text-white bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-12 py-2.5 focus:outline-none rounded-lg" onclick="login()">Login</button>
+        
+    </div>
+
+
+    <div class="container">
+        <h2>Property Based Event Handling</h2>
+        <button type="button" class="text-white bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-12 py-2.5 focus:outline-none rounded-lg" id="loginBtn">Login</button>
+    </div>
+
+
+        <div class="container">
+        <h2>Property Based Event Handling</h2>
+        <button type="button" class="text-white bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-12 py-2.5 focus:outline-none rounded-lg" id="registerBtn">Register</button>
+    </div>
+
+    <div class="container">
+        <h2>Event Listener Based Event Handling</h2>
+        <button type="button" class="text-white bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-12 py-2.5 focus:outline-none rounded-lg" id="subscribeBtn">Subscribe</button>
+    </div>
+
+
+    <div class="container">
+        <form action="https://www.achieversit.com" id="form">
+            <h2>Form Submit Event Handling</h2>
+            <input type="text" id="name" name="name" placeholder="Enter your name" class="mb-4 p-2 border border-gray-300 rounded-lg">
+
+            <input type="email" id="email" name="email" placeholder="Enter your email" class="mb-4 p-2 border border-gray-300 rounded-lg">
+
+            <button class="text-white bg-blue-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-12 py-2.5 focus:outline-none rounded-lg">Submit</button>
+        </form>
+    </div>
+
+    <div class="container" id="container">
+        <div id="grandParent">
+            <div id="parent">
+                <div id="child"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="./app.js"></script>
+</body>
+</html>
